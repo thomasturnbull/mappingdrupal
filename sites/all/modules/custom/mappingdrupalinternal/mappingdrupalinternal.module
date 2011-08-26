@@ -1,0 +1,7 @@
+<?php
+/**
+ * @file
+ * Code for the Mapping Drupal Internal feature.
+ */
+
+include_once('mappingdrupalinternal.features.inc');
