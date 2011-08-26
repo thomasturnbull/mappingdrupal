@@ -4,4 +4,3 @@
  * Code for the Mapping Drupal feature.
  */
 
-include_once('mappingdrupal.features.inc');
