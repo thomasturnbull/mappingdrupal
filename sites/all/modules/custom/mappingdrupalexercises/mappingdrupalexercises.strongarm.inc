@@ -69,5 +69,12 @@ function mappingdrupalexercises_strongarm() {
   );
   $export['node_options_exercise'] = $strongarm;
 
+  $strongarm = new stdClass;
+  $strongarm->disabled = FALSE; /* Edit this to true to make a default strongarm disabled initially */
+  $strongarm->api_version = 1;
+  $strongarm->name = 'pathauto_node_exercise_pattern';
+  $strongarm->value = 'exercise/[node:title]';
+  $export['pathauto_node_exercise_pattern'] = $strongarm;
+
   return $export;
 }
