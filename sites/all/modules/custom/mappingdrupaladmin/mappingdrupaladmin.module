@@ -1,0 +1,7 @@
+<?php
+/**
+ * @file
+ * Code for the Mapping Drupal Admin feature.
+ */
+
+include_once('mappingdrupaladmin.features.inc');

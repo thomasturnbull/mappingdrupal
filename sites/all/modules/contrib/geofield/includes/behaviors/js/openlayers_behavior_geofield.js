@@ -127,83 +127,41 @@ Drupal.behaviors.openlayers_behavior_geofield = {
 
       data.openlayers.addControl(bounds_control);
 
-/* --------------  Pretty Button Control Pane, does not yet work ---------------------------------
-      // Function when buttons are clicked
-      buttonToggle = function(which) {
-
-        if (which == 'bounds') {
-          point_control.deactivate();
-          line_control.deactivate();
-          polygon_control.deactivate();
-          
-          bounds_control.activate();
-        }
-        else if (which == 'line') {
-          point_control.deactivate();
-          polygon_control.deactivate();
-          bounds_control.deactivate();
-          
-          line_control.activate();
-        }
-        else if (which == 'polygon') {
-          point_control.deactivate();
-          bounds_control.deactivate();
-          line_control.deactivate();
-          
-          polygon_control.activate();
-        }
-        else if (which == 'point') {
-          bounds_control.deactivate();
-          line_control.deactivate();
-          polygon_control.deactivate();
-          
-          point_control.activate();
-        }
-        else {
-          point_control.deactivate();
-          bounds_control.deactivate();
-          line_control.deactivate();
-          polygon_control.deactivate();
-        }
-      }
-
       // Add buttons to control_panel for each control type
       point_button = new OpenLayers.Control.Button({
         displayClass: "openlayers_behavior_geofield_button", 
         title: Drupal.t('Set a point'),
-        trigger: buttonToggle('point')
+        trigger: buttonTriggerPoint
       });
 
       line_button = new OpenLayers.Control.Button({
         displayClass: "openlayers_behavior_geofield_button", 
         title: Drupal.t('Add a line'),
-        trigger: buttonToggle('line')
+        trigger: buttonTriggerLine
       });
 
       polygon_button = new OpenLayers.Control.Button({
         displayClass: "openlayers_behavior_geofield_button", 
         title: Drupal.t('Add a polygon'),
-        trigger: buttonToggle('polygon')
+        trigger: buttonTriggerPolygon
       });
 
       bounds_button = new OpenLayers.Control.Button({
         displayClass: "openlayers_behavior_geofield_button", 
         title: Drupal.t('Set bounds'),
-        trigger: buttonToggle('bounds')
+        trigger: buttonTriggerBounds
       });
-      
-      
+
       // Create a panel to hold control buttons
       button_panel = new OpenLayers.Control.Panel({
         displayClass: 'openlayers_behavior_geofield_button_panel'
       });
-      
+
       button_panel.addControls([point_button, line_button, polygon_button, bounds_button]);
 
       data.openlayers.addControl(button_panel);
       
       buttonToggle('none');
------------------------------------------------------------------------ */
 
       // Hold down control key for polygons
       // Hold down alt key for lines
@@ -259,4 +217,58 @@ Drupal.behaviors.openlayers_behavior_geofield = {
     }
   }
 };
+
+function buttonTriggerPoint() {
+  buttonToggle('point');
+}
+
+function buttonTriggerLine() {
+  buttonToggle('line');
+}
+
+function buttonTriggerPolygon() {
+  buttonToggle('polygon');
+}
+
+function buttonTriggerBounds() {
+  buttonToggle('bounds');
+}
+
+// Function when buttons are clicked
+function buttonToggle(which) {
+  if (which == 'bounds') {
+    point_control.deactivate();
+    line_control.deactivate();
+    polygon_control.deactivate();
+    
+    bounds_control.activate();
+  }
+  else if (which == 'line') {
+    point_control.deactivate();
+    polygon_control.deactivate();
+    bounds_control.deactivate();
+    
+    line_control.activate();
+  }
+  else if (which == 'polygon') {
+    point_control.deactivate();
+    bounds_control.deactivate();
+    line_control.deactivate();
+    
+    polygon_control.activate();
+  }
+  else if (which == 'point') {
+    bounds_control.deactivate();
+    line_control.deactivate();
+    polygon_control.deactivate();
+    
+    point_control.activate();
+  }
+  else {
+    point_control.deactivate();
+    bounds_control.deactivate();
+    line_control.deactivate();
+    polygon_control.deactivate();
+  }
+}
 })(jQuery);
