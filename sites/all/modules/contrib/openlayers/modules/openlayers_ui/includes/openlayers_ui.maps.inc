@@ -107,11 +107,13 @@ function openlayers_ui_maps_form($form_state, $args = NULL, $map = FALSE, $edit 
   $form['info']['image_path'] = array(
     '#type' => 'textfield',
     '#title' => t('Image Path'),
-    '#description' => t('The path to a directory for OpenLayers to look for UI
-      graphics. If blank, default graphics are used.  Use either a Drupal path
-      (and the appropriate base path will be prepended), an absolute path
-      (such as !ab_example), or a full URL.',
-      array('!ab_example' => '/path/to/images/')
+    '#description' => t('The path to a directory of UI graphics. Leave blank for
+      default graphics as provided by the OpenLayers library. Use either <strong>
+      relative Drupal path</strong> (without leading slash and the base path will be 
+      prepended, ex. "sites/all/themes/path/to/images/"), an <strong>absolute 
+      path</strong> (with leading slash and path will start from sites root
+      directory, ex. "/path/to/images/") or a <strong>full URL</strong>. Always 
+      include trailing slash.'
     ),
     '#default_value' => !empty($defaults['image_path']) ?
       $defaults['image_path'] : '',
@@ -120,12 +122,12 @@ function openlayers_ui_maps_form($form_state, $args = NULL, $map = FALSE, $edit 
   $form['info']['css_path'] = array(
     '#type' => 'textfield',
     '#title' => t('CSS Path'),
-    '#description' => t('Path for where OpenLayers should look for its theme
-      CSS file. The default hosted OpenLayers URL is
-      http://openlayers.org/api/theme/default/style.css.  Use either a Drupal path
-      (and the appropriate base path will be prepended), an absolute path
-      (such as !ab_example), or a full URL.',
-      array('!ab_example' => '/path/to/css/')
+    '#description' => t('The path to a CSS file for overriding CSS. The default
+      hosted OpenLayers URL is !link.  Use either a <strong>relative Drupal path</strong>
+      (without leading slash and base path will be prepended, ex. 
+      "sites/all/themes/path/to/css/file.css"), an <strong>absolute path</strong>
+      (with leading slash, ex. "/path/to/css/file.css"), or a <strong>full URL</strong>.',
+      array('!link' => l('http://openlayers.org/api/theme/default/style.css', 'http://openlayers.org/api/theme/default/style.css'))
     ),
     '#default_value' => !empty($defaults['css_path']) ?
       $defaults['css_path'] : '',

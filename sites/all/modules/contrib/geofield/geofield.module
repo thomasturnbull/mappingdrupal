@@ -291,7 +291,6 @@ function geofield_get_values_from_geometry($geometry) {
   return $values;
 }
 
-
 /**
  * Implements hook_apachesolr_field_mappings().
  */
@@ -304,28 +303,44 @@ function geofield_apachesolr_field_mappings() {
   );
 }
 
-
 /**
- * Apache Local Solr Name callback for field name
+ * Name callback for field name
  */
 function geofield_apachesolr_index($node, $field_name, $index_key, $field_info) {
+  $return = array();
   if (isset($node->$field_name)) {
     // Load the instance settings for the field
     $instance = field_info_instance('node', $field_name, $node->type);
-    if ($instance['settings']['local_solr']) {
-      $values = array_pop(field_get_items('node', $node, $field_name));
-      return array(
-        array(
-          'key' => $instance['settings']['lat_field'],
-          'value' => $values['lat']
-        ),
-        array(
-          'key' => $instance['settings']['lng_field'],
-          'value' =>  $values['lon']
-        ),
-      );
+    if (!empty($instance['settings']['localsolr'])) {
+      if ($values = field_get_items('node', $node, $field_name)) {
+        $values = reset($values);
+        $return = array(
+          array(
+            'key' => $instance['settings']['localsolr']['lat_field'],
+            'value' => $values['lat']
+          ),
+          array(
+            'key' => $instance['settings']['localsolr']['lng_field'],
+            'value' =>  $values['lon']
+          ),
+          array(
+            'key' => 'ss_geo_wkt',
+            'value' => $values['wkt'],
+          ),
+        );
+      }
     }
   }
+
+  return $return;
+}
+
+/**
+ * Implements hook_apachesolr_query_alter()
+ */
+function geofield_apachesolr_query_alter($query) {
+  // Add the WKT field field
+  $query->addParam('fl', 'ss_geo_wkt');
 }
 
 

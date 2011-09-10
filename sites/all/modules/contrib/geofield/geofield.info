@@ -7,10 +7,11 @@ files[] = geofield.install
 files[] = geofield.widgets.inc
 files[] = geofield.formatters.inc
 files[] = geofield.feeds.inc
+files[] = geofield.test
 
-; Information added by drupal.org packaging script on 2011-08-20
+; Information added by drupal.org packaging script on 2011-08-27
 version = "7.x-1.x-dev"
 core = "7.x"
 project = "geofield"
-datestamp = "1313842237"
+datestamp = "1314405360"
 
