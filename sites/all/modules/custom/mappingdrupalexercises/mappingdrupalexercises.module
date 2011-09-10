@@ -1,0 +1,7 @@
+<?php
+/**
+ * @file
+ * Code for the Mapping Drupal Exercises feature.
+ */
+
+include_once('mappingdrupalexercises.features.inc');
