@@ -14,7 +14,7 @@ function mappingdrupal_openlayers_styles() {
   $openlayers_styles->disabled = FALSE; /* Edit this to true to make a default openlayers_styles disabled initially */
   $openlayers_styles->api_version = 1;
   $openlayers_styles->name = 'earthquake';
-  $openlayers_styles->title = 'An earthquake';
+  $openlayers_styles->title = 'Earthquake style';
   $openlayers_styles->description = '';
   $openlayers_styles->data = array(
     'pointRadius' => 6,
