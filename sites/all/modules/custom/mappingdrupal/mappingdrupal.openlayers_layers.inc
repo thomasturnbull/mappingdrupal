@@ -17,10 +17,10 @@ function mappingdrupal_openlayers_layers() {
   $openlayers_layers->title = 'Largest Earthquakes';
   $openlayers_layers->description = 'Largest Earthquakes in the World Since 1900 - USGS';
   $openlayers_layers->data = array(
-    'url' => 'http://earthquake.usgs.gov/earthquakes/world/LargestWorldEarthquakes.kml',
+    'url' => 'sites/all/modules/custom/mappingdrupal/LargestWorldEarthquakes.kml',
     'formatOptions' => array(
-      'extractStyles' => 1,
-      'extractAttributes' => 1,
+      'extractStyles' => 0,
+      'extractAttributes' => 0,
     ),
     'layer_type' => 'openlayers_layer_type_kml',
   );

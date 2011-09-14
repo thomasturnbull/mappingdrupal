@@ -35,6 +35,11 @@ function mappingdrupal_openlayers_maps() {
     ),
     'behaviors' => array(
       'openlayers_behavior_attribution' => array(),
+      'openlayers_behavior_popup' => array(
+        'layers' => array(
+          'world_earthquakes' => 'world_earthquakes',
+        ),
+      ),
       'openlayers_behavior_navigation' => array(
         'zoomWheelEnabled' => 1,
         'documentDrag' => 0,
@@ -47,14 +52,14 @@ function mappingdrupal_openlayers_maps() {
       'world_earthquakes' => 'world_earthquakes',
     ),
     'layer_weight' => array(
-      'geofield_formatter' => '0',
       'world_earthquakes' => '0',
+      'geofield_formatter' => '0',
       'open_gov_projects' => '0',
     ),
     'layer_styles' => array(
       'open_gov_projects' => '0',
-      'world_earthquakes' => 'earthquake',
       'geofield_formatter' => '0',
+      'world_earthquakes' => 'earthquake',
     ),
     'layer_activated' => array(
       'world_earthquakes' => 'world_earthquakes',
@@ -62,8 +67,8 @@ function mappingdrupal_openlayers_maps() {
       'geofield_formatter' => 0,
     ),
     'layer_switcher' => array(
+      'world_earthquakes' => 'world_earthquakes',
       'open_gov_projects' => 0,
-      'world_earthquakes' => 0,
       'geofield_formatter' => 0,
     ),
     'projection' => '900913',
