@@ -25,3 +25,20 @@ function mappingdrupal_ctools_plugin_api() {
     return array("version" => "1");
   }
 }
+
+/**
+ * Implementation of hook_node_info().
+ */
+function mappingdrupal_node_info() {
+  $items = array(
+    'user_group' => array(
+      'name' => t('User Group'),
+      'base' => 'node_content',
+      'description' => t('A local Drupal user group'),
+      'has_title' => '1',
+      'title_label' => t('Group name'),
+      'help' => '',
+    ),
+  );
+  return $items;
+}
