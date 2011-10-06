@@ -5,7 +5,7 @@
  */
 
 /**
- * Implementation of hook_openlayers_layers().
+ * Implements hook_openlayers_layers().
  */
 function mappingdrupal_openlayers_layers() {
   $export = array();
