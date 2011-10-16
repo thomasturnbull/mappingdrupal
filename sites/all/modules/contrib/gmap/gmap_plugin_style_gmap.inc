@@ -45,7 +45,10 @@ class gmap_plugin_style_gmap extends views_plugin_style {
 
     $options['tooltipenabled'] = array('default' => 0);
     $options['tooltipfield'] = array('default' => '');
-
+    
+    $options['bubbletextenabled'] = array('default' => 0);
+    $options['bubbletextfield'] = array('default' => '');
+    
     return $options;
   }
 
@@ -103,6 +106,12 @@ class gmap_plugin_style_gmap extends views_plugin_style {
     if ($this->options['tooltipenabled']) {
       $tooltip_field_obj = $this->view->display_handler->get_handler('field', $this->options['tooltipfield']);
       $tooltip_field = $tooltip_field_obj->field_alias;
+    }
+    
+    $bubbletext_field_alias = '';
+    if ($this->options['bubbletextenabled']) {
+      $bubbletext_field_obj = $this->view->display_handler->get_handler('field', $this->options['bubbletextfield']);
+      $bubbletext_field_alias = $bubbletext_field_obj->field_alias;
     }
 
     // Determine fieldname for marker field.
@@ -198,12 +207,18 @@ class gmap_plugin_style_gmap extends views_plugin_style {
           if ($this->options['tooltipenabled'] && !empty($tooltip_field) && !empty($row->{$tooltip_field})) {
             $tooltip = $row->{$tooltip_field};
           }
+          
+          $bubbletext = NULL;
+          if ($this->options['bubbletextenabled'] && !empty($bubbletext_field_alias) && !empty($row->{$bubbletext_field_alias})) {
+            $bubbletext = $this->view->field[$this->options['bubbletextfield']]->advanced_render($row);
+          }
 
           $marker = array(
             'latitude' => $lat,
             'longitude' => $lon,
             'markername' => $markername,
             'offset' => $offsets[$markername],
+            'text' => $bubbletext,
             'opts' => array(
               'title' => $tooltip,
               'highlight' => (!empty($highlight_nid) && !empty($row_nid) && $highlight_nid == $row_nid) ? 1 : 0,
@@ -338,7 +353,7 @@ class gmap_plugin_style_gmap extends views_plugin_style {
     $form['enablermt'] = array(
       '#type' => 'checkbox',
       '#title' => t('Enable GMap RMT for markers'),
-      '#description' => t('You can pull the bodies of the markers from a callback instead of defining them inline. This is a performance feature for advanced users.'),
+      '#description' => t('You can pull the bodies of the markers from a callback instead of defining them inline. This is a performance feature for advanced users. <strong>NOTE:</strong> This feature is <strong>not compatible</strong> with the popup bubble feature below.  Enable only one of them.'),
       '#default_value' => $this->options['enablermt'],
     );
     $form['rmtfield'] = array(
@@ -426,6 +441,22 @@ class gmap_plugin_style_gmap extends views_plugin_style {
       '#process' => array('ctools_dependent_process'),
       '#dependency' => array('edit-style-options-tooltipenabled' => array(TRUE)),
     );
+    $form['bubbletextenabled'] = array(
+      '#type' => 'checkbox',
+      '#title' => t('Display a popup bubble with additional information when a marker is clicked.'),
+      '#default_value' => $this->options['bubbletextenabled'],
+      '#description' => t('<strong>NOTE:</strong> This feauture is <strong>not compatible</strong> with the RMT option offered above.  Do not use them together.')
+    );
+    $form['bubbletextfield'] = array(
+      '#title' => t('Bubble pop-up field'),
+      '#description' => empty($field_options) ? t("The field's format must be HTML or text.  You must be using the fields row style and have added fields to the view to use this option.") : t("The field's format must be HTML or text."),
+      '#type' => 'select',
+      '#options' => $field_options,
+      '#default_value' => $this->options['bubbletextfield'],
+      '#process' => array('ctools_dependent_process'),
+      '#dependency' => array('edit-style-options-bubbletextenabled' => array(TRUE)),
+    );
+    
   }
 
   /**
