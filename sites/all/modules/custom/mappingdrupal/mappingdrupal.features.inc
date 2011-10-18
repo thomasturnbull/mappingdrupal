@@ -39,6 +39,14 @@ function mappingdrupal_node_info() {
       'title_label' => t('Company name'),
       'help' => '',
     ),
+    'event' => array(
+      'name' => t('Event'),
+      'base' => 'node_content',
+      'description' => t('A Drupal event, such as a camp, meetup, training or social.'),
+      'has_title' => '1',
+      'title_label' => t('Event name'),
+      'help' => '',
+    ),
     'user_group' => array(
       'name' => t('User Group'),
       'base' => 'node_content',
