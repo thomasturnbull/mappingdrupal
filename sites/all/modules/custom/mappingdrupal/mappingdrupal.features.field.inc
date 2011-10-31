@@ -276,6 +276,89 @@ function mappingdrupal_field_default_fields() {
     ),
   );
 
+  // Exported field: 'node-event-field_event_date'
+  $fields['node-event-field_event_date'] = array(
+    'field_config' => array(
+      'active' => '1',
+      'cardinality' => '1',
+      'deleted' => '0',
+      'entity_types' => array(),
+      'field_name' => 'field_event_date',
+      'foreign keys' => array(),
+      'indexes' => array(),
+      'module' => 'date',
+      'settings' => array(
+        'granularity' => array(
+          'day' => 'day',
+          'hour' => 'hour',
+          'minute' => 'minute',
+          'month' => 'month',
+          'second' => 0,
+          'year' => 'year',
+        ),
+        'repeat' => 0,
+        'timezone_db' => 'UTC',
+        'todate' => '',
+        'tz_handling' => 'site',
+      ),
+      'translatable' => '0',
+      'type' => 'datetime',
+    ),
+    'field_instance' => array(
+      'bundle' => 'event',
+      'deleted' => '0',
+      'description' => '',
+      'display' => array(
+        'default' => array(
+          'label' => 'above',
+          'module' => 'date',
+          'settings' => array(
+            'format_type' => 'long',
+            'fromto' => 'both',
+            'multiple_from' => '',
+            'multiple_number' => '',
+            'multiple_to' => '',
+            'show_repeat_rule' => 'show',
+          ),
+          'type' => 'date_default',
+          'weight' => 3,
+        ),
+        'teaser' => array(
+          'label' => 'above',
+          'settings' => array(),
+          'type' => 'hidden',
+          'weight' => 0,
+        ),
+      ),
+      'entity_type' => 'node',
+      'field_name' => 'field_event_date',
+      'label' => 'Event date',
+      'required' => 0,
+      'settings' => array(
+        'default_value' => 'now',
+        'default_value2' => 'blank',
+        'default_value_code' => '',
+        'default_value_code2' => '',
+        'user_register_form' => FALSE,
+      ),
+      'widget' => array(
+        'active' => 1,
+        'module' => 'date',
+        'settings' => array(
+          'increment' => '15',
+          'input_format' => 'm/d/Y - H:i:s',
+          'input_format_custom' => '',
+          'label_position' => 'above',
+          'repeat_collapsed' => 0,
+          'text_parts' => array(),
+          'year_range' => '-3:+3',
+        ),
+        'type' => 'date_popup',
+        'weight' => '34',
+      ),
+    ),
+  );
+
   // Exported field: 'node-event-field_event_geo'
   $fields['node-event-field_event_geo'] = array(
     'field_config' => array(
@@ -298,7 +381,7 @@ function mappingdrupal_field_default_fields() {
       'description' => '',
       'display' => array(
         'default' => array(
-          'label' => 'above',
+          'label' => 'hidden',
           'module' => 'geofield',
           'settings' => array(
             'data' => 'full',
@@ -556,6 +639,7 @@ function mappingdrupal_field_default_fields() {
   t('Click on the map to set the location for this group.');
   t('Company description');
   t('Company location');
+  t('Event date');
   t('Event details');
   t('Event geo');
   t('Event location');
