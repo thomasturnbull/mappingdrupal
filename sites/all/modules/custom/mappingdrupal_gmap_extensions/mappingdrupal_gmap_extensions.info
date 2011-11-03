@@ -1,0 +1,7 @@
+name = Mapping with Drupal GMap Extensions
+description = A set of examples that extend the GMap module.
+core = 7.x
+package = Mapping with Drupal Examples
+dependencies[] = gmap
+
+files[] = mappingdrupal_gmap_extensions.module
