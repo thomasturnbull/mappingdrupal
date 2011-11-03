@@ -27,6 +27,16 @@ function mappingdrupal_ctools_plugin_api() {
 }
 
 /**
+ * Implements hook_views_api().
+ */
+function mappingdrupal_views_api() {
+  list($module, $api) = func_get_args();
+  if ($module == "views" && $api == "views_default") {
+    return array("version" => "3.0");
+  }
+}
+
+/**
  * Implements hook_node_info().
  */
 function mappingdrupal_node_info() {
