@@ -31,8 +31,8 @@ Drupal.behaviors.mappingdrupal_ol_extensions_geolocate = {
       }
       
       // Then check if a button was enabled.  We are utilizing
-      // OpenLayers Controls for this, but this could be
-      // any sort of button.
+      // OpenLayers Button and Panels Controls for this, 
+      // but this could be any sort of button.
       var button = new OpenLayers.Control.Button({
         displayClass: 'mappingdrupal-ol-geolocate-button',
         title: Drupal.t('Geolocate'),
