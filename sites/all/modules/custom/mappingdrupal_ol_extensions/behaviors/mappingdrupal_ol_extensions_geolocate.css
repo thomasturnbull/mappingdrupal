@@ -1,0 +1,24 @@
+/**
+ * @file
+ * CSS for the Geolocation behavior
+ */
+
+.mappingdrupal-ol-geolocate-panel {
+  bottom: 5px;
+  left: 5px;
+  z-index: 999999;
+}
+
+.mappingdrupal-ol-geolocate-buttonItemActive {
+  background-color: #EEEEEE;
+  border: 1px solid #666666;
+  color: #222222;
+  border-radius: 3px;
+  height: 2em;
+  width: 6em;
+  text-align: center;
+}
+
+.mappingdrupal-ol-geolocate-buttonItemActive:after {
+  content: "Geolocate";
+}

@@ -1,0 +1,7 @@
+name = Mapping with Drupal OpenLayers Extensions
+description = A set of examples that extend the OpenLayers module.
+core = 7.x
+package = Mapping with Drupal Examples
+dependencies[] = openlayers
+
+files[] = mappingdrupal_ol_extensions.module

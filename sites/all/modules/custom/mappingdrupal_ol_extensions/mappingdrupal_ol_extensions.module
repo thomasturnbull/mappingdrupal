@@ -1,0 +1,28 @@
+<?php
+/**
+ * @file
+ * Main module file for Mapping with Drupal OpenLayers Extensions module.
+ *
+ * Provides basic examples to show how to extend the OpenLayers module.
+ */
+
+/**
+ * Implements hook_openlayers_behaviors().
+ */
+function mappingdrupal_ol_extensions_openlayers_behaviors() {
+  // For more documentation on writing OpenLayers behaviors,
+  // see the docs/BEHAVIORS.txt within the module.
+
+  return array(
+    'mappingdrupal_ol_extensions_geolocate' => array(
+      'title' => t('HTML Geolocate'),
+      'description' => t('Allows for geolocation of the user utilizing HTML5.'),
+      'path' => drupal_get_path('module', 'mappingdrupal_ol_extensions') . '/behaviors',
+      'file' => 'mappingdrupal_ol_extensions_geolocate.inc',
+      'behavior' => array(
+        'class' => 'mappingdrupal_ol_extensions_geolocate',
+        'parent' => 'openlayers_behavior',
+      ),
+    ),
+  );
+}
