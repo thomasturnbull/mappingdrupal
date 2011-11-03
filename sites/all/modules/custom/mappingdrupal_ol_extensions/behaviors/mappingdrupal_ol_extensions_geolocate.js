@@ -62,11 +62,11 @@ Drupal.behaviors.mappingdrupal_ol_extensions_geolocate = {
     if (typeof navigator != 'undefined' && typeof navigator.geolocation != 'undefine') {
       navigator.geolocation.getCurrentPosition(function (position) {
         var center = new OpenLayers.LonLat(
-            position.coords.longitude,
-            position.coords.latitude
+          position.coords.longitude,
+          position.coords.latitude
         ).transform(
-            new OpenLayers.Projection("EPSG:4326"),
-            map.getProjectionObject()
+          new OpenLayers.Projection("EPSG:4326"),
+          map.getProjectionObject()
         );
         map.setCenter(center, zoom);
       });
