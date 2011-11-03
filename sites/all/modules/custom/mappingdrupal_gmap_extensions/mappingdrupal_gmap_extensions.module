@@ -1,0 +1,88 @@
+<?php
+/**
+ * @file
+ * Main module file for Mapping with Drupal GMap Extensions module.
+ *
+ * Provides basic examples to show how to extend the GMap module.
+ */
+ 
+/**
+ * Implements hook_gmap().
+ */
+function mappingdrupal_gmap_extensions_gmap($op, &$map) {
+  // For better documentation on this hook, look at the
+  // gmap.php file in the gmap module.
+  
+  switch ($op) {
+    case 'pre_theme_map':
+      // We should check of the behavior is enable, but it does not
+      // seem to be availble here.
+      drupal_add_js(drupal_get_path('module', 'mappingdrupal_gmap_extensions') . 
+        '/mappingdrupal_gmap_extensions.js');
+      break;
+    
+    case 'behaviors':
+      return array(
+        'geolocate_auto' => array(
+          'title' => t('Geolocate user automatically'),
+          'default' => FALSE,
+          'help' => t('This will geolocate the user on each page load and focus the map there.'),
+        ),
+        'geolocate_block' => array(
+          'title' => t('Geolocate user with block link'),
+          'default' => FALSE,
+          'help' => t('This will geolocate the user only if they use the action on the GMap Geolocate block.'),
+        ),
+      );
+      break;
+  }
+}
+ 
+/**
+ * Implements hook_block_info().
+ */
+function mappingdrupal_gmap_extensions_block_info() {
+  // Provide a block for user to choose to geolocate
+  // themselves.
+  $blocks['gmap_geolocate'] = array(
+    'info' => t('GMap Geolocate'), 
+  );
+
+  return $blocks;
+}
+ 
+/**
+ * Implements hook_block_view().
+ */
+function mappingdrupal_gmap_extensions_block_view($delta = '') {
+  $block = array();
+
+  switch ($delta) {
+    case 'gmap_geolocate':
+      $block['subject'] = t('Geolocate Yourself');
+      $block['content'] = array(
+        '#theme' => 'mappingdrupal_gmap_extensions_block_content',
+      );
+      break;
+  }
+  
+  return $block;
+}
+
+/**
+ * Implements hook_theme().
+ */
+function mappingdrupal_gmap_extensions_theme($existing, $type, $theme, $path) {
+  return array(
+    'mappingdrupal_gmap_extensions_block_content' => array(
+      'variables' => array(),
+    ),
+  );
+}
+
+/**
+ * Theme callback for block content.
+ */
+function theme_mappingdrupal_gmap_extensions_block_content() {
+  return '<a class="mappingdrupal-gmap-geolocate-action" style="display:none;"></a>';
+}
