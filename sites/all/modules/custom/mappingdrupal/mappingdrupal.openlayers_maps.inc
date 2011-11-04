@@ -106,6 +106,11 @@ function mappingdrupal_openlayers_maps() {
     ),
     'behaviors' => array(
       'openlayers_behavior_attribution' => array(),
+      'openlayers_behavior_popup' => array(
+        'layers' => array(
+          'drupal_groups_openlayers_1' => 'drupal_groups_openlayers_1',
+        ),
+      ),
       'openlayers_behavior_navigation' => array(
         'zoomWheelEnabled' => 1,
         'documentDrag' => 0,
