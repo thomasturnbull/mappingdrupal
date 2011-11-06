@@ -132,7 +132,7 @@ function mappingdrupal_openlayers_maps() {
       'open_gov_projects' => '0',
       'geofield_formatter' => '0',
       'world_earthquakes' => '0',
-      'drupal_groups_openlayers_1' => '0',
+      'drupal_groups_openlayers_1' => 'drupal_user_groups',
     ),
     'layer_activated' => array(
       'drupal_groups_openlayers_1' => 'drupal_groups_openlayers_1',
@@ -150,7 +150,7 @@ function mappingdrupal_openlayers_maps() {
     'displayProjection' => '4326',
     'styles' => array(
       'default' => 'default',
-      'select' => 'default',
+      'select' => 'drupal_user_groups',
       'temporary' => 'default',
     ),
   );
