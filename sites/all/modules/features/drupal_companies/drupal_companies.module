@@ -1,0 +1,7 @@
+<?php
+/**
+ * @file
+ * Code for the Drupal companies feature.
+ */
+
+include_once('drupal_companies.features.inc');

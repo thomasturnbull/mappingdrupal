@@ -1,17 +1,13 @@
 <?php
 /**
  * @file
- * mappingdrupal.features.inc
+ * user_groups_and_events.features.inc
  */
 
 /**
  * Implements hook_ctools_plugin_api().
  */
-function mappingdrupal_ctools_plugin_api() {
-  list($module, $api) = func_get_args();
-  if ($module == "openlayers" && $api == "openlayers_layers") {
-    return array("version" => "1");
-  }
+function user_groups_and_events_ctools_plugin_api() {
   list($module, $api) = func_get_args();
   if ($module == "openlayers" && $api == "openlayers_maps") {
     return array("version" => "1");
@@ -29,7 +25,7 @@ function mappingdrupal_ctools_plugin_api() {
 /**
  * Implements hook_views_api().
  */
-function mappingdrupal_views_api() {
+function user_groups_and_events_views_api() {
   list($module, $api) = func_get_args();
   if ($module == "views" && $api == "views_default") {
     return array("version" => "3.0");
@@ -39,16 +35,8 @@ function mappingdrupal_views_api() {
 /**
  * Implements hook_node_info().
  */
-function mappingdrupal_node_info() {
+function user_groups_and_events_node_info() {
   $items = array(
-    'drupal_company' => array(
-      'name' => t('Drupal Company'),
-      'base' => 'node_content',
-      'description' => t('A Drupal development company'),
-      'has_title' => '1',
-      'title_label' => t('Company name'),
-      'help' => '',
-    ),
     'event' => array(
       'name' => t('Event'),
       'base' => 'node_content',
