@@ -27,7 +27,8 @@ Drupal.behaviors.mappingdrupal_ol_extensions_geolocate = {
       // First, check if the option to geolocate on load is
       // enabled.
       if (options.on_load) {
-        Drupal.behaviors.mappingdrupal_ol_extensions_geolocate.geolocate(data.openlayers, options.zoom);
+        Drupal.behaviors.mappingdrupal_ol_extensions_geolocate.geolocate(
+          data.openlayers, options.zoom);
       }
       
       // Then check if a button was enabled.  We are utilizing
@@ -38,7 +39,8 @@ Drupal.behaviors.mappingdrupal_ol_extensions_geolocate = {
           displayClass: 'mappingdrupal-ol-geolocate-button',
           title: Drupal.t('Geolocate'),
           trigger: function() {
-            Drupal.behaviors.mappingdrupal_ol_extensions_geolocate.geolocate(data.openlayers, options.zoom);
+            Drupal.behaviors.mappingdrupal_ol_extensions_geolocate.geolocate(
+              data.openlayers, options.zoom);
           }
         });
         var panel = new OpenLayers.Control.Panel({
@@ -61,7 +63,8 @@ Drupal.behaviors.mappingdrupal_ol_extensions_geolocate = {
     // We have to make sure we are explicit of the projection
     // as latitude and longitude are different from
     // spherical mercator (or other possiblilities).
-    if (typeof navigator != 'undefined' && typeof navigator.geolocation != 'undefine') {
+    if (typeof navigator != 'undefined' && 
+      typeof navigator.geolocation != 'undefine') {
       navigator.geolocation.getCurrentPosition(function (position) {
         var center = new OpenLayers.LonLat(
           position.coords.longitude,

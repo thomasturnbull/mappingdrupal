@@ -5,7 +5,8 @@
  * Provides geolocation functionality for a Gmap.
  */
  
-// Namespace $ for jQuery
+// Namespace $ for jQuery.  This ensures that $ will
+// actually equal the jQuery function.
 (function($) {
 
 /**
@@ -15,10 +16,9 @@
 Drupal.behaviors.mappingdrupal_gmap_extensions = {
   'attach': function(context, settings) {
     // The following ensures that the behavior is only performed
-    // once.
-    $('body:not(.mappingdrupal-gmap-processed)').each(function() {
-      $('body').addClass('mappingdrupal-gmap-processed');
-      
+    // once.  Since we are adding a handler for all Gmap maps, 
+    // we are not concerned with context.
+    $('body').once(function() {
       // Add a handler to the map
       Drupal.gmap.addHandler('gmap', function(elem) {
         var gmap = this;

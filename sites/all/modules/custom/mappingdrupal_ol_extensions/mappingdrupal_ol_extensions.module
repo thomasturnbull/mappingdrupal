@@ -16,10 +16,12 @@ function mappingdrupal_ol_extensions_openlayers_behaviors() {
   return array(
     'mappingdrupal_ol_extensions_geolocate' => array(
       'title' => t('HTML Geolocate'),
-      'description' => t('Allows for geolocation of the user utilizing HTML5.'),
-      'path' => drupal_get_path('module', 'mappingdrupal_ol_extensions') . '/behaviors',
-      'file' => 'mappingdrupal_ol_extensions_geolocate.inc',
+      'description' => t('Allows for geolocation of the user
+        utilizing HTML5.'),
       'behavior' => array(
+        'path' => drupal_get_path('module', 'mappingdrupal_ol_extensions') . 
+          '/behaviors',
+        'file' => 'mappingdrupal_ol_extensions_geolocate.inc',
         'class' => 'mappingdrupal_ol_extensions_geolocate',
         'parent' => 'openlayers_behavior',
       ),

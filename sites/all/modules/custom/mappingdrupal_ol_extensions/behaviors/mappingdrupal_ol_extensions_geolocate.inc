@@ -27,20 +27,26 @@ class mappingdrupal_ol_extensions_geolocate extends openlayers_behavior {
       'on_load' => array(
         '#title' => t('Geolocate on load'),
         '#type' => 'checkbox',
-        '#description' => t('When checked, the map will geolocate the user and zoom in when the map first loads.'),
-        '#default_value' => isset($defaults['on_load']) ?  $defaults['on_load'] : FALSE
+        '#description' => t('When checked, the map will geolocate the user 
+          and zoom in when the map first loads.'),
+        '#default_value' => isset($defaults['on_load']) ?  
+          $defaults['on_load'] : FALSE
       ),
       'button' => array(
         '#title' => t('Geolocate button'),
         '#type' => 'checkbox',
-        '#description' => t('When checked, provides a button on the map that will geolocate the user.'),
-        '#default_value' => isset($defaults['button']) ?  $defaults['button'] : TRUE
+        '#description' => t('When checked, provides a button on the map that 
+          will geolocate the user.'),
+        '#default_value' => isset($defaults['button']) ? 
+          $defaults['button'] : TRUE
       ),
       'zoom' => array(
         '#title' => t('Zoom level'),
         '#type' => 'textfield',
-        '#description' => t('Determine the zoom level when geolocating.  Higher is more zoomed in.'),
-        '#default_value' => isset($defaults['zoom']) ?  $defaults['zoom'] : 11
+        '#description' => t('Determine the zoom level when geolocating.  Higher 
+          is more zoomed in.'),
+        '#default_value' => isset($defaults['zoom']) ? 
+          $defaults['zoom'] : 11
       ),
     );
   }

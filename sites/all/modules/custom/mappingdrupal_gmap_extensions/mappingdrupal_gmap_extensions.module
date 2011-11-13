@@ -26,12 +26,14 @@ function mappingdrupal_gmap_extensions_gmap($op, &$map) {
         'geolocate_auto' => array(
           'title' => t('Geolocate user automatically'),
           'default' => FALSE,
-          'help' => t('This will geolocate the user on each page load and focus the map there.'),
+          'help' => t('This will geolocate the user on each page load and 
+            focus the map there.'),
         ),
         'geolocate_block' => array(
           'title' => t('Geolocate user with block link'),
           'default' => FALSE,
-          'help' => t('This will geolocate the user only if they use the action on the GMap Geolocate block.'),
+          'help' => t('This will geolocate the user only if they use 
+            the action on the GMap Geolocate block.'),
         ),
       );
       break;
@@ -84,5 +86,6 @@ function mappingdrupal_gmap_extensions_theme($existing, $type, $theme, $path) {
  * Theme callback for block content.
  */
 function theme_mappingdrupal_gmap_extensions_block_content() {
-  return '<a class="mappingdrupal-gmap-geolocate-action" style="display:none;"></a>';
+  return '<a class="mappingdrupal-gmap-geolocate-action" 
+    style="display:none;"></a>';
 }
