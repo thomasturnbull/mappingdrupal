@@ -1,0 +1,37 @@
+<?php
+
+/**
+ * @file
+ * KML module.
+ */
+
+/**
+ * Implements hook_views_api().
+ */
+function kml_views_api() {
+  return array(
+    'api' => 2,
+    'path' => drupal_get_path('module', 'kml') . '/views',
+  );
+}
+
+/**
+ * Implements hook_theme().
+ */
+function kml_theme() {
+  $path = drupal_get_path('module', 'kml');
+  return array(
+    'kml_placemark' => array(
+      'variables' => array('point' => array(), 'points' => array()),
+      'file' => 'kml_views.theme.inc',
+      'template' => 'kml-placemark',
+      'path' => $path . "/views",
+    ),
+    'kml_style' => array(
+      'variables' => array('points' => array()),
+      'file' => 'kml_style.theme.inc',
+      'template' => 'kml-style',
+      'path' => "$path/views",
+    ),
+  );
+}

@@ -1,0 +1,19 @@
+name = "KML"
+description = "Provides views plugin for KML/Google Earth output"
+dependencies[] = views
+core = "7.x"
+
+files[] = kml.module
+files[] = views/kml-placemark.tpl.php
+files[] = views/kml-style.tpl.php
+files[] = views/kml.views.inc
+files[] = views/kml_views.theme.inc
+files[] = views/kml_style.theme.inc
+files[] = views/views-view-kml.tpl.php
+files[] = views/views_plugin_style_kml.inc
+; Information added by drupal.org packaging script on 2011-07-26
+version = "7.x-1.x-dev"
+core = "7.x"
+project = "kml"
+datestamp = "1311682503"
+
