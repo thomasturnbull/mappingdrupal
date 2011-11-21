@@ -59,7 +59,8 @@ Drupal.behaviors.mappingdrupal_gmap_extensions = {
     // Firest ensure that that the HTML5 geolocation controls
     // are available.  We might use some more helpful
     // libraries for this, like Modernizr
-    if (typeof navigator != 'undefined' && typeof navigator.geolocation != 'undefine') {
+    if (typeof navigator != 'undefined' && 
+      typeof navigator.geolocation != 'undefined') {
       navigator.geolocation.getCurrentPosition(function (position) {
         lat = position.coords.latitude;
         lng = position.coords.longitude;

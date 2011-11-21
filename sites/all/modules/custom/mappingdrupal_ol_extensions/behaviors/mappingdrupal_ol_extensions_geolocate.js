@@ -64,7 +64,7 @@ Drupal.behaviors.mappingdrupal_ol_extensions_geolocate = {
     // as latitude and longitude are different from
     // spherical mercator (or other possiblilities).
     if (typeof navigator != 'undefined' && 
-      typeof navigator.geolocation != 'undefine') {
+      typeof navigator.geolocation != 'undefined') {
       navigator.geolocation.getCurrentPosition(function (position) {
         var center = new OpenLayers.LonLat(
           position.coords.longitude,
