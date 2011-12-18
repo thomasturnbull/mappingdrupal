@@ -1,0 +1,434 @@
+/**
+ * Main CSS for Mapping Drupal Bootstrap.
+ */
+ 
+html {
+  background-color: #EEE;
+}
+ 
+/**
+ * Logo
+ */
+#logo {
+}
+#logo img {
+  position: absolute;
+  top: 6px;
+}
+.topbar .brand {
+  padding: 8px 20px 12px 80px;
+}
+
+/**
+ * Front page
+ */
+.welcome-message {
+  position: absolute;
+  z-index: 999999;
+  bottom: 0;
+  left: 20px;
+  background-color: rgb(191, 191, 191);
+  background-color: rgba(191, 191, 191, 0.8);
+  border-top-left-radius: 5px;
+  border-top-right-radius: 5px;
+  width: 300px;
+  padding: 15px 15px 25px 15px;
+  font-size: 15px;
+}
+.welcome-message a {
+  font-weight: bold; 
+}
+.closer-open {
+  position: absolute;
+  z-index: 9999999;
+  bottom: 0;
+  left: 35px;
+  padding: 3px 5px;
+  height: 18px;
+  line-height: 18px;
+  font-weight: bold;
+  color: #FFFFFF;
+  text-align: center;
+  background-color: rgb(8, 8, 8);
+  background-color: rgba(8, 8, 8, 0.75);
+  border-top-left-radius: 5px;
+  border-top-right-radius: 5px;
+}
+
+/**
+ * Formy goodness.
+ */
+.main-content-container .form-actions {
+  background: whiteSmoke;
+  margin-top: 18px;
+  margin-bottom: 18px;
+  padding: 17px 20px 18px 150px;
+  border-top: 1px solid #DDD;
+  -webkit-border-radius: 0 0 3px 3px;
+  -moz-border-radius: 0 0 3px 3px;
+  border-radius: 0 0 3px 3px;
+}
+
+.form-stacked .form-actions {
+  margin-left: -20px;
+  padding-left: 20px;
+}
+
+input.btn {
+  margin-right: 10px;
+}
+
+.filter-guidelines {
+  margin-left: 150px;
+  font-size: 10px;
+}
+.topbar form {
+  width: 400px; 
+}
+.topbar input,
+.topbar form {
+  float: right;
+}
+
+/**
+ * Messages.
+ */
+.alert-message li {
+  color: #FFFFFF;
+}
+
+/**
+ * Full screen.
+ */
+.container-fluid.fullscreen,
+.container.fullscreen,
+.container-fluid.fullscreen .openlayers-map {
+  width: auto !important;
+  height: auto !important;
+  position: fixed !important;
+  left: 0px;
+  top: 0px;
+  right: 0px;
+  bottom: 0px;
+}
+
+/**
+ * Map
+ */
+.fullscreen .olControlPanZoomBar {
+  top: 60px !important;
+  left: 20px !important;
+}
+
+.fullscreen .olControlLayerSwitcher {
+  top: 60px !important;
+}
+.field-type-geofield div.olMapViewport {
+  border-radius: 5px !important;
+}
+.olControlLayerSwitcher > div {
+  display: none;
+}
+.olControlLayerSwitcher .layersDiv,
+.olControlLayerSwitcher .maximizeDiv,
+.olControlLayerSwitcher .minimizeDiv {
+  display: block;
+  background-color: #222222 !important;
+}
+.olControlLayerSwitcher .layersDiv {
+  border-bottom-left-radius: 5px;
+  border-top-left-radius: 5px;
+  padding-bottom: 15px;
+  padding-top: 15px;
+}
+.olControlLayerSwitcher .maximizeDiv,
+.olControlLayerSwitcher .minimizeDiv {
+  background-color: transparent !important;
+}
+.olControlAttribution {
+  right: 10px !important;
+  bottom: 0px !important;
+  background-color: rgb(191, 191, 191) !important;
+  background-color: rgba(191, 191, 191, 0.8) !important;
+  border-top-left-radius: 5px;
+  border-top-right-radius: 5px;
+  color: #FFFFFF;
+  padding: 10px 15px;
+}
+.olImageLoadError {
+  background-color: #FFFFFF !important;
+}
+.openlayers-popupbox {
+  position: absolute;
+  bottom: 20px;
+  right: 20px;
+  z-index: 999999;
+  background-color: rgb(191, 191, 191);
+  background-color: rgba(191, 191, 191, 0.8);
+  border-radius: 5px;
+  padding: 15px;
+  min-width: 320px;
+  max-width: 640px;
+}
+.openlayers-popupbox a.popup-close {
+  color: #FFFFFF;
+  float: right;
+  background-color: rgb(8, 8, 8);
+  background-color: rgba(8, 8, 8, 0.75);
+  border-radius: 5px;
+  width: 18px;
+  height: 18px;
+  text-align: center;
+  line-height: 18px;
+}
+.openlayers-popupbox .popup-pager,
+.openlayers-popupbox .popup-count {
+  display: none;
+}
+.openlayers-popupbox .popup-content img {
+  float: right;
+  border-radius: 5px;
+  margin-left: 10px;
+  margin-bottom: 10px;
+}
+
+/**
+ * Custom field related stuff.
+ */
+.views-field-field-project-image,
+.views-field-field-node-image,
+.views-field-field-book-image,
+.views-field-field-portrait,
+.field-type-image {
+  float: right;
+  padding: 4px;
+  margin: 0 0 20px 20px;
+  border: 1px solid #DDD;
+  -webkit-border-radius: 4px;
+  -moz-border-radius: 4px;
+  border-radius: 4px;
+  -webkit-box-shadow: 0 1px 1px rgba(0, 0, 0, 0.075);
+  -moz-box-shadow: 0 1px 1px rgba(0, 0, 0, 0.075);
+  box-shadow: 0 1px 1px rgba(0, 0, 0, 0.075);
+}
+.field-name-field-subtitle {
+  display: none;
+}
+
+.topic-label {
+  margin-right: 10px;
+}
+
+div.field-label {
+  font-weight: bold;
+  color: #404040;
+}
+.field-label-above div.field-label {
+  font-size: 16px;
+  line-height: 36px;
+}
+.field-label-inline {
+  line-height: 36px;
+}
+.field-name-field-haiku {
+  background-color: whiteSmoke;
+  margin-bottom: 30px;
+  padding: 60px;
+  -webkit-border-radius: 6px;
+  -moz-border-radius: 6px;
+  border-radius: 6px;
+  width: 460px;
+}
+.field-name-field-haiku p {
+  font-size: 18px;
+  font-weight: 200;
+  line-height: 27px;
+}
+.field-name-field-geolocation {
+  clear: both;
+}
+.field-name-field-geolocation .field-items {
+  border-radius: 5px;
+}
+.field-name-field-image-gallery {
+  float: none;
+  padding: 0;
+  margin: 0;
+  border: none;
+  -webkit-border-radius: 0;
+  -moz-border-radius: 0;
+  border-radius: 0;
+  -webkit-box-shadow: none;
+  -moz-box-shadow: none;
+  box-shadow: none;
+  min-height: 227px;
+}
+.field-name-field-image-gallery .field-item {
+  float: left;
+  padding: 4px;
+  margin: 0 20px 20px 0;
+  border: 1px solid #DDD;
+  -webkit-border-radius: 4px;
+  -moz-border-radius: 4px;
+  border-radius: 4px;
+  -webkit-box-shadow: 0 1px 1px rgba(0, 0, 0, 0.075);
+  -moz-box-shadow: 0 1px 1px rgba(0, 0, 0, 0.075);
+  box-shadow: 0 1px 1px rgba(0, 0, 0, 0.075);
+}
+
+/**
+ * Views
+ */
+.views-field-field-project-image,
+.views-field-field-portrait,
+.views-field-field-node-image,
+.views-field-field-book-image {
+  float: none;
+  text-align: center;
+  margin: 0;
+}
+.views-field-title {
+  font-size: 18px;
+  line-height: 22px;
+}
+.views-row {
+  margin-bottom: 15px;
+}
+.views-field-field-haiku p {
+  font-size: 18px;
+  font-weight: 200;
+  line-height: 27px;
+  padding: 15px;
+}
+
+/**
+ * Node
+ */
+.node .content {
+  margin-bottom: 20px;
+}
+.label-node-type {
+  float: right;
+}
+.node {
+  margin-bottom: 20px;
+}
+.flippy {
+  float: right;
+  margin-top: -6px;
+}
+.flippy a {
+  font-weight: bold;
+  color: #404040;
+}
+.flippy-next {
+  margin-left: 0;
+}
+.flippy-prev {
+  margin-right: 0;
+}
+
+/**
+ * Links
+ */
+.main-content-container ul.links.inline {
+  list-style: none;
+  margin: 0;
+}
+.main-content-container ul.links.inline li {
+  margin: 10px 10px 0 0;
+  float: left;
+}
+.comment-wrapper ul.links.inline li {
+  float: right;
+}
+
+/**
+ * Comments.
+ */
+.comment-permalink {
+  margin-left: 10px;
+}
+.comment-permalink a {
+  color: white;
+}
+.comment-wrapper .submitted {
+  font-weight: bold;
+}
+
+/**
+ * Search
+ */
+#search-block-form input.form-submit {
+  margin-top: 2px;
+  margin-left: 10px;
+}
+#search-block-form input.btn {
+  margin-right: 0;
+}
+
+/**
+ * Masonry
+ */
+.masonry-container .block {
+  background: #EEEEEE;
+}
+
+/**
+ * Blocks
+ */
+#block-block-3 {
+  text-align: center;
+}
+#twitter_block_results p.tweet {
+  float: none;
+  color: #404040;
+}
+#twitter_block_results .twitter_block_user img {
+  float: right;
+  margin: 0 0 10px 10px;
+  border-radius: 3px;
+}
+#twitter_block_results .twitter_block_user .profile_image {
+  display: none;
+}
+#twitter_block_results ul {
+  margin: 0;
+  padding: 0;
+}
+#twitter_block_results ul li {
+  margin-bottom: 15px;
+  min-height: 55px;
+}
+
+/**
+ * Experience
+ */
+.experience-side-box {
+  font-size: 13px;
+  color: #888888;
+}
+.page-node-8 .span4 ul {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+.page-node-8 h3 {
+  font-size: 24px;
+  line-height: 36px;
+  border-bottom: 1px solid #404040;
+  margin-bottom: .5em;
+}
+
+/** 
+ * Footer
+ */
+#footer {
+  margin-top: 17px;
+  background-color: #EEE;
+  min-width: 940px;
+  padding: 30px 0;
+  text-shadow: 0 1px 0 white;
+  border-top: 1px solid #E5E5E5;
+  -webkit-box-shadow: inset 0 5px 15px;
+}

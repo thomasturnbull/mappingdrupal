@@ -1,0 +1,35 @@
+/**
+ * Main layout CSS for MApping Drupal Bootstrap.
+ */
+
+body {
+  padding-top: 60px;
+}
+
+#footer {
+  margin-top: 17px;
+  padding-top: 17px;
+  border-top: 1px solid #EEE;
+}
+
+/**
+ * Masonry.
+ */
+.masonry-container {
+  margin-left: -10px;
+  margin-right: -10px;
+}
+.masonry-container .block {
+  width: 280px;
+  border-radius: 5px;
+  float: left;
+  padding: 10px;
+  margin: 10px;
+}
+
+/**
+ * Printing
+ */
+.print-only {
+  display: none;
+}

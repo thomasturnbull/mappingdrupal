@@ -1,0 +1,163 @@
+/**
+ * Print Style for Mapping Drupal Bootstrap.
+ */
+html {
+  margin: 0 1em;
+}
+ 
+body {
+  font: 12pt;
+}
+.no-print {
+  display: none;
+}
+
+.print-only {
+  display: inherit;
+}
+
+h1 {
+  /* page-break-before: always; */
+}
+
+.page-break {
+  page-break-after: always;
+}
+
+a {
+  color: inherit;
+  font-weight: bold;
+}
+
+/**
+ * Hide parts.
+ */
+.topbar {
+  display: none;
+}
+
+.tabs {
+  display: none;
+}
+
+/**
+ *
+ */
+h2 {
+  font-size: 58pt;
+  padding: 0 0 .5em 1em;
+  border-bottom: 5px solid #404040;
+  margin-bottom: 1em;
+  line-height: 1em;
+  vertical-align: bottom;
+}
+
+h3 {
+  font-size: 32pt;
+  color: #BFBFBF;
+  border-bottom: 1px solid #BFBFBF;
+  margin-bottom: .5em;
+}
+
+h4 {
+  font-size: 22pt;
+}
+
+h5 {
+  font-size: 18pt;
+  color: #BFBFBF;
+}
+
+p {
+  font-size: 16pt;
+  margin-bottom: .5em;
+  line-height: 20pt;
+}
+
+ul li,
+ol li {
+  font-size: 16pt;
+  margin-bottom: .5em;
+  line-height: 20pt;
+}
+ul {
+  margin-right: 2em;
+  margin-left: 4em;
+  margin-bottom: 3em;
+}
+
+.row {
+  margin-bottom: .5em;
+}
+
+.well {
+  border: none;
+  background-color: inherit;
+}
+.well ul {
+  margin-bottom: 0;
+}
+
+/**
+ * Footer for print.  Chrome doesn't support fixed.
+ */
+.print-footer {
+  text-align: right;
+  padding-top: 1em;
+  margin-top: 3em;
+  border-top: 1px solid #BFBFBF;
+  width: 100%;
+  clear: both;
+}
+
+/**
+ * Experience only
+ */
+.experience-contact-info {
+  float: right;
+  text-align: right;
+  color: #BFBFBF;
+}
+
+.page-node-8 h1.title {
+  display: none;
+}
+
+.experience-mission {
+  font-size: 32pt;
+  line-height: 1em;
+  margin-bottom: 2em;
+  text-align: justify;
+}
+
+.page-node-8 #footer {
+  display: none;
+}
+
+.page-node-8 h3 small {
+  color: #BFBFBF;
+}
+
+.page-node-8 .row .span4 ul {
+  margin-top: 2em;
+}
+
+.page-node-8 .row .span4 ul li {
+  font-size: 12pt;
+  margin: 0;
+  padding: 0;
+  line-height: 1em;
+}
+
+.experience-time,
+.experience-location,
+.experience-urls {
+  color: #BFBFBF;
+}
+
+.page-node-8 h3 {
+  font-size: 32pt;
+  color: #BFBFBF;
+  border-bottom: 1px solid #BFBFBF;
+  margin-bottom: .5em;
+}
