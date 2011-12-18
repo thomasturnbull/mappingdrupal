@@ -50,6 +50,11 @@ function mappingdrupal_bootstrap_preprocess_page(&$variables) {
       $variables['sub_title'] = $sub_titles[0]['safe_value'];
     }
   }
+  
+  // Handle a one-page site if front page
+  if (drupal_is_front_page()) {
+    mappingdrupal_bootstrap_single_page($variables);
+  }
 }
 
 /**
@@ -345,4 +350,56 @@ function mappingdrupal_bootstrap_determine_fluid() {
   }
   
   return $is_fluid;
+}
+
+/**
+ * Handle changing page into a one-page site by
+ * using the main-menu links to render the pages
+ * and make them into anchor links.
+ */
+function mappingdrupal_bootstrap_single_page(&$variables) {
+  $links = menu_load_links('main-menu');
+  $count = 0;
+  $title = drupal_get_title();
+  
+  // Go through links and add render arrays to content.
+  foreach ($links as $id => $link) {
+    $count++;
+    
+    // Ensure that its not the front page or the current
+    // page.
+    if ($link['link_path'] != '<front>' && current_path() != $link['link_path']) {
+      $alias = drupal_get_path_alias($link['link_path']);
+      $item_array = menu_execute_active_handler($link['link_path'], FALSE);
+      
+      // Add a prefix to items so that they are anchorable
+      $item_array['#prefix'] = (isset($item_array['#prefix'])) ? $item_array['#prefix'] : '';
+      $item_array['#prefix'] .= '<a name="' . $alias . '" id="' . $alias . '"></a>';
+      
+      // Add a suffix to items so that they go back to top
+      $item_array['#suffix'] = (isset($item_array['#suffix'])) ? $item_array['#suffix'] : '';
+      $item_array['#suffix'] .= '<a href="#page-top" class="back-to-top anchor-scroll">' . 
+        t('Back to top') . '</a>';
+
+      // Add render arrays to page content.
+      $variables['page']['content'][$alias . '-' . $count] = $item_array;
+    }
+  }
+  
+  // Go through and update menu links
+  $main = $variables['main_menu'];
+  foreach ($main as $id => $main_item) {
+    $alias = drupal_get_path_alias($main_item['href']);
+    if ($main_item['href'] == '<front>') {
+      $alias = 'page-top';
+    }
+    
+    // Do some magic to get things to work correctly;
+    $variables['main_menu'][$id]['href'] = '';
+    $variables['main_menu'][$id]['fragment'] = $alias;
+    $variables['main_menu'][$id]['attributes']['class'][] = 'anchor-scroll';
+    $variables['main_menu'][$id]['external'] = TRUE;
+  }
+  
+  drupal_set_title($title);
 }

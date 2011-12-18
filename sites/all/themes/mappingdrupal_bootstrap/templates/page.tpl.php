@@ -66,6 +66,7 @@
  * @see template_process()
  */
 ?>
+<a name="page-top" id="page-top"></a>
 <div class="topbar">
   <div class="fill">
     <div class="container<?php if (isset($fluid) && $fluid): ?>-fluid<?php endif; ?>">
